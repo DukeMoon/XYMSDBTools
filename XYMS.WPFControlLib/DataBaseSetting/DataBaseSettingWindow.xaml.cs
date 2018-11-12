@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace XYMS.WPFControlLib.DataBaseSetting
 {
@@ -22,6 +11,32 @@ namespace XYMS.WPFControlLib.DataBaseSetting
         public DataBaseSettingWindow()
         {
             InitializeComponent();
+        }
+
+        private void CloseWindowCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
+        private void TestConnectionCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void TestConnectionCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveConfigCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveConfigCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
         }
     }
 }

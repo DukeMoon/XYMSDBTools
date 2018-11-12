@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XYMS.WPFControlLib.DataBaseSetting"
         mc:Ignorable="d"
-        Title="DataBaseSettingWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="DataBaseSettingWindow" Height="350" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DataBaseSettingResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding x:Name="CloseWindowCommand" Command="local:DataBaseSettingCommands.CloseWindow" Executed="CloseWindowCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="TestConnectionCommand" Command="local:DataBaseSettingCommands.TestConnection" Executed="TestConnectionCommand_Executed" CanExecute="TestConnectionCommand_CanExecute"></CommandBinding>
+        <CommandBinding x:Name="SaveConfigCommand" Command="local:DataBaseSettingCommands.SaveConfig" Executed="SaveConfigCommand_Executed" CanExecute="SaveConfigCommand_CanExecute"></CommandBinding>
+    </Window.CommandBindings>
+    <Window.DataContext>
+        <local:DataBaseSettingViewModel x:Name="ViewModel" />
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">地址：</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.IP}"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">端口号：</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Port}"></TextBox>
+        <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">账号：</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Account}"></TextBox>
+        <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">密码：</TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Password}"></TextBox>
+        <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">账户数据库：</TextBlock>
+        <TextBox Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.AuthName}"></TextBox>
+        <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">角色数据库：</TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.CharacterName}"></TextBox>
+        <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">世界数据库：</TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.WorldName}"></TextBox>
+        <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Command="local:DataBaseSettingCommands.TestConnection">测试链接</Button>
+            <Button Grid.Column="1" Grid.Row="0" Command="local:DataBaseSettingCommands.SaveConfig">保存配置</Button>
+            <Button Grid.Column="2" Grid.Row="0" Command="local:DataBaseSettingCommands.CloseWindow">关闭窗体</Button>
+        </Grid>
     </Grid>
 </Window>

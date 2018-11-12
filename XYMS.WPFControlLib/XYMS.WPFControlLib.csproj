@@ -32,6 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Materal.Common, Version=0.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Materal.Common.0.0.12\lib\netstandard2.0\Materal.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Materal.ConvertHelper, Version=0.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Materal.ConvertHelper.0.0.12\lib\netstandard2.0\Materal.ConvertHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Materal.StringHelper, Version=0.0.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Materal.StringHelper.0.0.12\lib\netstandard2.0\Materal.StringHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -48,6 +60,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseSetting\DataBaseSettingCommands.cs" />
+    <Compile Include="DataBaseSetting\DataBaseSettingViewModel.cs" />
     <Compile Include="DataBaseSetting\DataBaseSettingWindow.xaml.cs">
       <DependentUpon>DataBaseSettingWindow.xaml</DependentUpon>
     </Compile>
@@ -68,16 +82,27 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="DataBaseSetting\DataBaseSettingResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataBaseSetting\DataBaseSettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XYMS.WPFCommon\XYMS.WPFCommon.csproj">
+      <Project>{29B67184-6683-47DF-9779-FCDE81053BCF}</Project>
+      <Name>XYMS.WPFCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
