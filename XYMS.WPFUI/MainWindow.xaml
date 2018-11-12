@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
     <Window.CommandBindings>
-        <CommandBinding x:Name="OpenDataBaseSettingWindowCommand" Command="local:MainWindowCommands.OpenDataBaseSettingWindow" Executed="OpenDataBaseSettingWindowCommand_Executed" CanExecute="OpenDataBaseSettingWindowCommand_CanExecute"></CommandBinding>
+        <CommandBinding x:Name="OpenDataBaseSettingWindowCommand" Command="local:MainWindowCommands.OpenDataBaseSettingWindow" Executed="OpenDataBaseSettingWindowCommand_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
@@ -19,5 +19,6 @@
                 <MenuItem Command="local:MainWindowCommands.OpenDataBaseSettingWindow"></MenuItem>
             </MenuItem>
         </Menu>
+        <Grid x:Name="MainPanel" Grid.Row="1" Grid.Column="0"></Grid>
     </Grid>
 </Window>

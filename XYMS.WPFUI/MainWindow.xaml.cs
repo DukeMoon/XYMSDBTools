@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using XYMS.WPFControlLib.DataBaseSetting;
 
@@ -14,15 +15,31 @@ namespace XYMS.WPFUI
             InitializeComponent();
         }
 
+        #region 命令实现
         private void OpenDataBaseSettingWindowCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             var dataBaseSettingWindow = new DataBaseSettingWindow();
             dataBaseSettingWindow.ShowDialog();
         }
-
-        private void OpenDataBaseSettingWindowCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        #endregion
+        #region 私有方法
+        /// <summary>
+        /// 当前的控件
+        /// </summary>
+        private UserControl _nowControl;
+        /// <summary>
+        /// 加载用户控件
+        /// </summary>
+        /// <param name="userControl"></param>
+        private void LoadUserControl(UserControl userControl)
         {
-            e.CanExecute = true;
+            if (_nowControl?.GetType().GUID == userControl.GetType().GUID) return;
+            MainPanel.Children.Clear();
+            userControl.VerticalAlignment = VerticalAlignment.Stretch;
+            userControl.HorizontalAlignment = HorizontalAlignment.Stretch;
+            MainPanel.Children.Add(userControl);
+            _nowControl = userControl;
         }
+        #endregion
     }
 }
