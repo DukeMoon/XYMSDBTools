@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XYMS.WPFControlLib.DataBaseSetting"
         mc:Ignorable="d"
-        Title="DataBaseSettingWindow" Height="350" Width="400" WindowStartupLocation="CenterScreen">
+        Title="数据库设置" Height="350" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DataBaseSettingResources.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="DataBaseSettingResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -41,19 +41,19 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">地址：</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.IP}"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.IP}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">端口号：</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Port}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Port}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">账号：</TextBlock>
-        <TextBox Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Account}"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Account}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">密码：</TextBlock>
-        <TextBox Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Password}"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.Password}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">账户数据库：</TextBlock>
-        <TextBox Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.AuthName}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.AuthName}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">角色数据库：</TextBlock>
-        <TextBox Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.CharacterName}"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.CharacterName}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">世界数据库：</TextBlock>
-        <TextBox Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.WorldName}"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.WorldName}" TextChanged="TextBox_TextChanged"></TextBox>
         <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>

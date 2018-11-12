@@ -1,22 +1,85 @@
 ﻿using Materal.ConvertHelper;
+using Materal.DBHelper;
+using Materal.WPFCommon;
+using System;
+using System.Configuration;
+using Materal.StringHelper;
 using XYMS.WPFCommon;
 using XYMS.WPFCommon.Model;
 
 namespace XYMS.WPFControlLib.DataBaseSetting
 {
-    public class DataBaseSettingViewModel
+    public class DataBaseSettingViewModel : NotifyPropertyChanged
     {
-        /// <summary>
-        /// 构造方法
-        /// </summary>
-        public DataBaseSettingViewModel()
-        {
-            DBConfig = ApplicationConfig.DataBaseConfig.Clone();
-        }
+        private DataBaseConfigModel _dbConfig;
 
         /// <summary>
         /// 数据库配置
         /// </summary>
-        public DataBaseConfigModel DBConfig { get; set; }
+        public DataBaseConfigModel DBConfig
+        {
+            get => _dbConfig;
+            set
+            {
+                _dbConfig = value;
+                OnPropertyChanged(nameof(DBConfig));
+            }
+        }
+        /// <summary>
+        /// 是否可以测试
+        /// </summary>
+        public bool IsTest => DBConfig != null &&
+                              !string.IsNullOrEmpty(DBConfig.Account) && 
+                              !string.IsNullOrEmpty(DBConfig.AuthName) && 
+                              !string.IsNullOrEmpty(DBConfig.CharacterName) && 
+                              !string.IsNullOrEmpty(DBConfig.IP) &&
+                              DBConfig.IP.IsIPv4() &&
+                              !string.IsNullOrEmpty(DBConfig.Password) && 
+                              !string.IsNullOrEmpty(DBConfig.Port) &&
+                              DBConfig.Port.IsIntegerPositive() &&
+                              !string.IsNullOrEmpty(DBConfig.WorldName);
+        /// <summary>
+        /// 测试结果
+        /// </summary>
+        public bool TestResult { get; set; }
+        /// <summary>
+        /// 显示消息
+        /// </summary>
+        public event Action<string> OnMessage;
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        public void Init()
+        {
+            DBConfig = ApplicationConfig.DataBaseConfig;
+        }
+        /// <summary>
+        /// 连接测试
+        /// </summary>
+        public void ConnectionTest()
+        {
+            var mySqlHelper = new MySqlHelper();
+            bool authTestResult = mySqlHelper.ConnectionTest(DBConfig.AuthConnectionString);
+            bool characterTestResult = mySqlHelper.ConnectionTest(DBConfig.CharacterConnectionString);
+            bool worldTestResult = mySqlHelper.ConnectionTest(DBConfig.WorldConnectionString);
+            TestResult = authTestResult && characterTestResult && worldTestResult;
+            if (TestResult)
+            {
+                OnMessage?.Invoke("数据库连接成功");
+            }
+            else
+            {
+                if (!authTestResult) OnMessage?.Invoke("账户数据库连接失败");
+                if (!characterTestResult) OnMessage?.Invoke("角色数据库连接失败");
+                if (!worldTestResult) OnMessage?.Invoke("世界数据库连接失败");
+            }
+        }
+        /// <summary>
+        /// 保存配置
+        /// </summary>
+        public void SaveConfig()
+        {
+            DBConfig.SaveConfig();
+        }
     }
 }

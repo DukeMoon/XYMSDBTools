@@ -96,6 +96,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XYMS.WPFCommon\XYMS.WPFCommon.csproj">
+      <Project>{29B67184-6683-47DF-9779-FCDE81053BCF}</Project>
+      <Name>XYMS.WPFCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XYMS.WPFControlLib\XYMS.WPFControlLib.csproj">
       <Project>{5138B780-761B-448E-BF3A-EDA14FFBB234}</Project>
       <Name>XYMS.WPFControlLib</Name>
