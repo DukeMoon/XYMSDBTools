@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:XYMS.WPFControlLib.DataBaseSetting">
     <GridLength x:Key="InputRowHeight">31</GridLength>
+    <GridLength x:Key="ButtonGroupColumnWidth">0.5*</GridLength>
     <Style TargetType="Button">
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="4,0,0,0"></Setter>

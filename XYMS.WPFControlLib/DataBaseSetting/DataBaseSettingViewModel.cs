@@ -43,9 +43,13 @@ namespace XYMS.WPFControlLib.DataBaseSetting
         /// </summary>
         public bool TestResult { get; set; }
         /// <summary>
-        /// 显示消息
+        /// 连接测试成功
         /// </summary>
-        public event Action<string> OnMessage;
+        public event Action<string> OnConnectionTestSuccess;
+        /// <summary>
+        /// 连接测试失败
+        /// </summary>
+        public event Action<string> OnConnectionTestFail;
         /// <summary>
         /// 初始化
         /// </summary>
@@ -65,13 +69,13 @@ namespace XYMS.WPFControlLib.DataBaseSetting
             TestResult = authTestResult && characterTestResult && worldTestResult;
             if (TestResult)
             {
-                OnMessage?.Invoke("数据库连接成功");
+                OnConnectionTestSuccess?.Invoke("数据库连接成功");
             }
             else
             {
-                if (!authTestResult) OnMessage?.Invoke("账户数据库连接失败");
-                if (!characterTestResult) OnMessage?.Invoke("角色数据库连接失败");
-                if (!worldTestResult) OnMessage?.Invoke("世界数据库连接失败");
+                if (!authTestResult) OnConnectionTestFail?.Invoke("账户数据库连接失败");
+                if (!characterTestResult) OnConnectionTestFail?.Invoke("角色数据库连接失败");
+                if (!worldTestResult) OnConnectionTestFail?.Invoke("世界数据库连接失败");
             }
         }
         /// <summary>

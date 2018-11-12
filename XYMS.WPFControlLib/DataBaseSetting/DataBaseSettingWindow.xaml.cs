@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using XYMS.WPFCommon;
 
 namespace XYMS.WPFControlLib.DataBaseSetting
 {
@@ -32,7 +33,7 @@ namespace XYMS.WPFControlLib.DataBaseSetting
         private void SaveConfigCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             ViewModel.SaveConfig();
-            MessageBox.Show("保存成功", "保存配置");
+            ApplicationManager.ShowMessageBox("保存成功", "保存结果");
             CloseWindowCommand_Executed(sender, e);
         }
 
@@ -43,13 +44,19 @@ namespace XYMS.WPFControlLib.DataBaseSetting
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.OnMessage += ViewModel_OnMessage;
+            ViewModel.OnConnectionTestSuccess += ViewModel_OnConnectionTestSuccess;
+            ViewModel.OnConnectionTestFail += ViewModel_OnConnectionTestFail;
             ViewModel.Init();
         }
 
-        private void ViewModel_OnMessage(string message)
+        private void ViewModel_OnConnectionTestFail(string message)
         {
-            MessageBox.Show(message, "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+            ApplicationManager.ShowErrorBox(message);
+        }
+
+        private void ViewModel_OnConnectionTestSuccess(string message)
+        {
+            ApplicationManager.ShowMessageBox(message);
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)

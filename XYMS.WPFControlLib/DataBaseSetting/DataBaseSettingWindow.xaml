@@ -37,7 +37,7 @@
             <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
             <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
             <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
-            <RowDefinition Height="{DynamicResource InputRowHeight}"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">地址：</TextBlock>
@@ -54,15 +54,17 @@
         <TextBox Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.CharacterName}" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">世界数据库：</TextBlock>
         <TextBox Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Text="{Binding DBConfig.WorldName}" TextChanged="TextBox_TextChanged"></TextBox>
-        <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
+        <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{DynamicResource ButtonGroupColumnWidth}"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="{DynamicResource ButtonGroupColumnWidth}"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Command="local:DataBaseSettingCommands.TestConnection">测试链接</Button>
-            <Button Grid.Column="1" Grid.Row="0" Command="local:DataBaseSettingCommands.SaveConfig">保存配置</Button>
-            <Button Grid.Column="2" Grid.Row="0" Command="local:DataBaseSettingCommands.CloseWindow">关闭窗体</Button>
+            <Button Grid.Column="1" Grid.Row="0" Command="local:DataBaseSettingCommands.TestConnection">测试链接</Button>
+            <Button Grid.Column="2" Grid.Row="0" Command="local:DataBaseSettingCommands.SaveConfig">保存配置</Button>
+            <Button Grid.Column="3" Grid.Row="0" Command="local:DataBaseSettingCommands.CloseWindow">关闭窗体</Button>
         </Grid>
     </Grid>
 </Window>
