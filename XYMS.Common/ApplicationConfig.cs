@@ -1,7 +1,6 @@
-﻿using System.Configuration;
-using XYMS.WPFCommon.Model;
+﻿using XYMS.Common.Model;
 
-namespace XYMS.WPFCommon
+namespace XYMS.Common
 {
     /// <summary>
     /// 应用程序配置对象

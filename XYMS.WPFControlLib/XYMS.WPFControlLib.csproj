@@ -40,8 +40,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Materal.Common, Version=0.0.13.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Materal.Common.0.0.13\lib\netstandard2.0\Materal.Common.dll</HintPath>
@@ -67,7 +67,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlClient, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -140,6 +139,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XYMS.Common\XYMS.Common.csproj">
+      <Project>{CFF0B330-1DF3-4AAB-9F94-48A2E53BA5FB}</Project>
+      <Name>XYMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XYMS.WPFCommon\XYMS.WPFCommon.csproj">
       <Project>{29B67184-6683-47DF-9779-FCDE81053BCF}</Project>
       <Name>XYMS.WPFCommon</Name>

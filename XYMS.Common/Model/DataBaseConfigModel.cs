@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Configuration;
 
-namespace XYMS.WPFCommon.Model
+namespace XYMS.Common.Model
 {
     /// <summary>
     /// 数据库配置模型
     /// </summary>
-    [Serializable]
     public class DataBaseConfigModel
     {
         /// <summary>

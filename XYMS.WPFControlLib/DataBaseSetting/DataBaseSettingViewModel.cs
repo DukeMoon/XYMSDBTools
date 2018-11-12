@@ -1,11 +1,9 @@
-﻿using Materal.ConvertHelper;
-using Materal.DBHelper;
+﻿using Materal.DBHelper;
+using Materal.StringHelper;
 using Materal.WPFCommon;
 using System;
-using System.Configuration;
-using Materal.StringHelper;
-using XYMS.WPFCommon;
-using XYMS.WPFCommon.Model;
+using XYMS.Common;
+using XYMS.Common.Model;
 
 namespace XYMS.WPFControlLib.DataBaseSetting
 {

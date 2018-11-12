@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Materal.ThreeTierArchitecture.Common" Version="0.0.4" />
+    <PackageReference Include="Materal.ThreeTierArchitecture.MySqlRepository" Version="0.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XYMS.MySqlEntityFrameworkRepository\XYMS.MySqlEntityFrameworkRepository.csproj" />
+  </ItemGroup>
+
+</Project>
