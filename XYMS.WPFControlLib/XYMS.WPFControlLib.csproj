@@ -99,6 +99,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About\AboutControl.xaml.cs">
+      <DependentUpon>AboutControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseSetting\DataBaseSettingCommands.cs" />
     <Compile Include="DataBaseSetting\DataBaseSettingViewModel.cs" />
     <Compile Include="DataBaseSetting\DataBaseSettingWindow.xaml.cs">
@@ -129,6 +132,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="About\AboutControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataBaseSetting\DataBaseSettingResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
