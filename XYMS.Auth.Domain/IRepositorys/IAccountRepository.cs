@@ -2,7 +2,7 @@
 
 namespace XYMS.Auth.Domain.IRepositorys
 {
-    public interface IAccountRepository : IEntityFrameworkRepository<Account,int>
+    public interface IAccountRepository : IEFRepository<Account,int>
     {
     }
 }

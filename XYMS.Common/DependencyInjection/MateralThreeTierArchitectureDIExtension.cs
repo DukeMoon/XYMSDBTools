@@ -9,8 +9,8 @@ namespace XYMS.Common.DependencyInjection
     {
         public static void UseMateralThreeTierArchitecture(this IServiceCollection services)
         {
-            services.AddTransient(typeof(IEntityFrameworkRepository<,>), typeof(MySqlEntityFrameworkRepositoryImpl<,>));
-            services.AddTransient(typeof(IEntityFrameworkUnitOfWork<AuthDBContext>), typeof(MySqlEntityFrameworkUnitOfWorkImpl<AuthDBContext>));
+            services.AddTransient(typeof(IEFRepository<,>), typeof(MySqlEFRepositoryImpl<,>));
+            services.AddTransient(typeof(IEFUnitOfWork<AuthDBContext>), typeof(MySqlEFUnitOfWorkImpl<AuthDBContext>));
         }
     }
 }
