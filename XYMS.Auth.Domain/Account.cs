@@ -21,7 +21,7 @@ namespace XYMS.Auth.Domain
         /// <summary>
         /// 会话键
         /// </summary>
-        public string SessionKey { get; set; } = string.Empty;
+        public string SessionkKey { get; set; } = string.Empty;
 
         /// <summary>
         /// 未知
@@ -81,12 +81,12 @@ namespace XYMS.Auth.Domain
         /// <summary>
         /// 禁言的原因
         /// </summary>
-        public string MuteReason { get; set; } = string.Empty;
+        public string Mutereason { get; set; } = string.Empty;
 
         /// <summary>
         /// 禁言
         /// </summary>
-        public string MuteBy { get; set; } = string.Empty;
+        public string Muteby { get; set; } = string.Empty;
 
         /// <summary>
         /// 语言

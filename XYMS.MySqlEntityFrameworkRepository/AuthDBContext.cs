@@ -9,21 +9,19 @@ namespace XYMS.MySqlEntityFrameworkRepository
 {
     public class AuthDBContext : DbContext
     {
-        public AuthDBContext(DbContextOptions options) : base(options) { }
-        /// <summary>
-        /// 帐号
-        /// </summary>
+        public AuthDBContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Account> Account { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// 模型创建
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            IEnumerable<Type> typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(q => q.GetInterface(typeof(IEntityTypeConfiguration<>).FullName) != null);
-            foreach (Type type in typesToRegister)
-            {
-                dynamic configurationInstance = Activator.CreateInstance(type);
-                modelBuilder.ApplyConfiguration(configurationInstance);
-            }
         }
     }
 }

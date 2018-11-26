@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using XYMS.WPFControlLib.About;
 using XYMS.WPFControlLib.DataBaseSetting;
 
 namespace XYMS.WPFUI
@@ -15,20 +14,12 @@ namespace XYMS.WPFUI
         {
             InitializeComponent();
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            SwitchAboutControlCommand_Executed(null, null);
-        }
+
         #region 命令实现
         private void OpenDataBaseSettingWindowCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             var dataBaseSettingWindow = new DataBaseSettingWindow();
             dataBaseSettingWindow.ShowDialog();
-        }
-        private void SwitchAboutControlCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            var control = new AboutControl();
-            LoadUserControl(control);
         }
         #endregion
         #region 私有方法

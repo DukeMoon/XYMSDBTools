@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XYMS.WPFUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="MainWindow" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
     <Window.CommandBindings>
         <CommandBinding x:Name="OpenDataBaseSettingWindowCommand" Command="local:MainWindowCommands.OpenDataBaseSettingWindow" Executed="OpenDataBaseSettingWindowCommand_Executed"></CommandBinding>
-        <CommandBinding x:Name="SwitchAboutControlCommand" Command="local:MainWindowCommands.SwitchAboutControl" Executed="SwitchAboutControlCommand_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
@@ -16,13 +15,8 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Grid.Column="0">
-            <MenuItem Header="帐号">
-            </MenuItem>
             <MenuItem Header="设置">
                 <MenuItem Command="local:MainWindowCommands.OpenDataBaseSettingWindow"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="帮助">
-                <MenuItem Command="local:MainWindowCommands.SwitchAboutControl"></MenuItem>
             </MenuItem>
         </Menu>
         <Grid x:Name="MainPanel" Grid.Row="1" Grid.Column="0"></Grid>

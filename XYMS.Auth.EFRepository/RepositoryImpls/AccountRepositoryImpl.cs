@@ -8,7 +8,7 @@ using XYMS.Auth.Domain.IRepositorys;
 
 namespace XYMS.Auth.EFRepository.RepositoryImpls
 {
-    public class AccountRepositoryImpl : MySqlEFRepositoryImpl<Account, int>, IAccountRepository
+    public class AccountRepositoryImpl : MySqlEntityFrameworkRepositoryImpl<Account, int>, IAccountRepository
     {
         public AccountRepositoryImpl(DbContext dbContext) : base(dbContext)
         {

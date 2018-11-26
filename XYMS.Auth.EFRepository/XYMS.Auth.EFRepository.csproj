@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Materal.TTA.Common" Version="0.0.1" />
-    <PackageReference Include="Materal.TTA.MySqlRepository" Version="0.0.1" />
+    <PackageReference Include="Materal.ThreeTierArchitecture.Common" Version="0.0.2" />
+    <PackageReference Include="Materal.ThreeTierArchitecture.MySqlRepository" Version="0.0.2" />
   </ItemGroup>
 
   <ItemGroup>
